@@ -10,6 +10,7 @@
     <version>1.0.0</version>
     <modules>
         <module>learn-client</module>
+        <module>learn-server</module>
     </modules>
 
     <properties>
@@ -18,10 +19,11 @@
         <java.version>1.8</java.version>
         <maven.compiler.version>3.7.0</maven.compiler.version>
         <lombok.version>1.16.20</lombok.version>
-        <spring.boot.version>2.1.2.RELEASE</spring.boot.version>
-        <cloud.boot.version>2.1.0.RELEASE</cloud.boot.version>
+        <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
+        <spring.cloud.version>2.0.2.RELEASE</spring.cloud.version>
         <netty.version>4.1.33.Final</netty.version>
         <jackson.version>2.9.8</jackson.version>
+        <spring-kafka.version>2.2.4.RELEASE</spring-kafka.version>
     </properties>
 
     <dependencyManagement>
@@ -47,11 +49,6 @@
                 <version>${spring.boot.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-stream-kafka</artifactId>
-                <version>${cloud.boot.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-logging</artifactId>
                 <version>${spring.boot.version}</version>
@@ -62,9 +59,9 @@
                 <version>${spring.boot.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-                <version>${cloud.boot.version}</version>
+                <groupId>org.springframework.kafka</groupId>
+                <artifactId>spring-kafka</artifactId>
+                <version>2.2.0.RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>

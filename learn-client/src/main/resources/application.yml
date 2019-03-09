@@ -1,0 +1,21 @@
+#Server Config
+server:
+  port: 8000
+#Spring Config
+spring:
+  application:
+    name: learn-client
+  kafka:
+    bootstrap-servers: 115.159.2.51:9092,118.89.146.110:9092
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      acks: 1
+      retries: 2
+
+
+
+
+#Loging Config
+logging:
+  level:
+    root: INFO
