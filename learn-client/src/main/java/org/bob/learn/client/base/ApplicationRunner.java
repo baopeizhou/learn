@@ -19,7 +19,12 @@ public class ApplicationRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        CourseReq req = new CourseReq();
-        courseApiService.listCourse(req);
+        try{
+            CourseReq req = new CourseReq();
+            courseApiService.listCourse(req);
+        }catch (Exception e){
+
+        }
+
     }
 }
