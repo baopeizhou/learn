@@ -2,7 +2,7 @@
 server:
   port: 9000
   ssl:
-    key-store: keystore.p12
+    key-store: classpath:keystore.p12
     key-store-type: JKS
     key-alias: undertow
     key-store-password: mm1989321
