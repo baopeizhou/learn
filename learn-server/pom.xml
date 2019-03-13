@@ -104,7 +104,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring.boot.version}</version>
                 <configuration>
-                    <mainClass>org.bob.learn.client.Application</mainClass>
+                    <mainClass>org.bob.learn.server.Application</mainClass>
                 </configuration>
                 <executions>
                     <execution>

@@ -1,20 +1,21 @@
 #Server Config
 server:
   port: 9000
+  ssl:
+    key-store: keystore.p12
+    key-store-type: JKS
+    key-alias: undertow
+    key-store-password: mm1989321
 #Spring Config
 spring:
   application:
-    name: learn-client
+    name: learn-server
   kafka:
     bootstrap-servers: 115.159.2.51:9092,118.89.146.110:9092
     producer:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       acks: 1
       retries: 2
-
-
-
-
 #Loging Config
 logging:
   level:

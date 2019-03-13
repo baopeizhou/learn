@@ -12,10 +12,26 @@ spring:
       acks: 1
       retries: 2
 
-
-
-
+#Feign Config
+feign:
+  hystrix:
+    enabled: true
+  httpclient:
+    enabled: true
+    disable-ssl-validation: true
+  client:
+    default:
+      connectTimeout: 1000
+      readTimeout: 1000
+      encoder: feign.jackson.JacksonEncoder
+      decoder: feign.jackson.JacksonDecoder
+    courseApiService:
+      readTimeout: 500
 #Loging Config
 logging:
   level:
     root: INFO
+#Api Url Config
+api:
+  url:
+    course: sdfasdf
