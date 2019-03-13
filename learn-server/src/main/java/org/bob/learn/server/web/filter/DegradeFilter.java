@@ -1,6 +1,6 @@
 package org.bob.learn.server.web.filter;
 
-import org.bob.learn.client.monitor.ThreadMonitor;
+import org.bob.learn.server.monitor.ThreadMonitor;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

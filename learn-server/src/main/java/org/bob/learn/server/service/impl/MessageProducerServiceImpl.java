@@ -1,3 +1,4 @@
+/*
 package org.bob.learn.server.service.impl;
 
 import org.bob.learn.client.common.dto.Message;
@@ -20,3 +21,4 @@ public class MessageProducerServiceImpl implements MessageProducerService {
         kafkaTemplate.send
     }
 }
+*/

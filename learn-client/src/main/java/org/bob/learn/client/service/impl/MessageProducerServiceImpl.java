@@ -16,7 +16,6 @@ public class MessageProducerServiceImpl implements MessageProducerService {
 
     @Override
     public void send(Message message) {
-        kafkaTemplate.send("learn",message);
-        kafkaTemplate.send
+
     }
 }

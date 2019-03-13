@@ -1,3 +1,4 @@
+/*
 package org.bob.learn.server.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
@@ -16,3 +17,4 @@ public class MessageConsumerServiceImpl implements MessageConsumerService {
         log.info(String.valueOf(message));
     }
 }
+*/
