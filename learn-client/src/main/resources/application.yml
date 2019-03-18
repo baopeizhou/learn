@@ -11,6 +11,18 @@ spring:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       acks: 1
       retries: 2
+  redis:
+    cluster:
+      max-redirects: 3
+      nodes: 115.159.2.51:6379
+    lettuce:
+      pool:
+        min-idle: 8
+        max-idle: 64
+        max-wait: 2000
+        max-active: 100
+      shutdown-timeout: 10
+    password: learn
 
 #Feign Config
 feign:

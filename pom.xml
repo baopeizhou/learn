@@ -17,13 +17,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <maven.compiler.version>3.7.0</maven.compiler.version>
         <lombok.version>1.16.20</lombok.version>
+        <spring.version>5.1.2.RELEASE</spring.version>
         <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
         <spring.cloud.version>2.1.0.RELEASE</spring.cloud.version>
         <netty.version>4.1.33.Final</netty.version>
         <jackson.version>2.9.8</jackson.version>
         <spring-kafka.version>2.2.4.RELEASE</spring-kafka.version>
+        <lettuce.version>5.1.2.RELEASE</lettuce.version>
+        <pool.version>2.6.1</pool.version>
     </properties>
 
     <dependencyManagement>
@@ -32,6 +34,11 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-messaging</artifactId>
+                <version>${spring.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -47,6 +54,16 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-redis</artifactId>
                 <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.lettuce</groupId>
+                <artifactId>lettuce-core</artifactId>
+                <version>${lettuce.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${pool.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -65,15 +82,9 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-stream-binder-kafka</artifactId>
-                <version>${spring.cloud.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
                 <version>${spring.cloud.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
