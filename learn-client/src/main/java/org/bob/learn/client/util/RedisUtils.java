@@ -79,6 +79,10 @@ public final class RedisUtils {
         return redisTemplate.type(key);
     }
 
+    public static Boolean del(String key){
+        return redisTemplate.delete(key);
+    }
+
 
    /****************************** value操作工具方法 ******************************************************/
 
@@ -110,7 +114,7 @@ public final class RedisUtils {
      * @param value   待添加的元素
      * @return        实际添加数量
      */
-    public static Long sAdd(String key, Object...value){
+    public static Long sadd(String key, Object...value){
       return redisTemplate.opsForSet().add(key,value);
     }
 
@@ -120,7 +124,7 @@ public final class RedisUtils {
      * @param value   待删除的元素
      * @return        实际删除数量
      */
-    public static Long sRem(String key, Object... value){
+    public static Long srem(String key, Object... value){
         return redisTemplate.opsForSet().remove(key,value);
     }
 
@@ -131,7 +135,7 @@ public final class RedisUtils {
      * @param value  集合对应的值
      * @return       结果标识
      */
-    public static Boolean sIsMember(String key,Object value){
+    public static Boolean sismember(String key,Object value){
         return redisTemplate.opsForSet().isMember(key,value);
     }
 

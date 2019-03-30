@@ -14,7 +14,7 @@ spring:
   redis:
     cluster:
       max-redirects: 3
-      nodes: 115.159.2.51:6379
+      nodes: 115.159.2.51:6379,115.159.2.51:6380,115.159.2.51:6381,118.89.146.110:6379,118.89.146.110:6380,118.89.146.110:6381
     lettuce:
       pool:
         min-idle: 8
@@ -29,7 +29,6 @@ feign:
   hystrix:
     enabled: true
   httpclient:
-    enabled: true
     disable-ssl-validation: true
   client:
     default:
