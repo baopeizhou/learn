@@ -1,8 +1,10 @@
 package org.bob.learn.client.util;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.DataType;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.Set;
@@ -12,24 +14,34 @@ import java.util.concurrent.TimeUnit;
  * Redis工具类
  */
 @Slf4j
+@Component
 public final class RedisUtils {
 
-    private static RedisTemplate<String,Object> redisTemplate = SpringContextUtils.getBean(RedisTemplate.class);
+    private static RedisTemplate redisTemplate ;
 
     /**
      * 私有构造器
      * 禁止通过反射构造类实例
      * @throws IllegalAccessException 非法访问异常
      */
-    private RedisUtils() throws IllegalAccessException {
-        throw new IllegalAccessException("禁止访问RedisUtils私有构造方法");
-    }
+
+
+
+
+
+
+
+
 
     public static RedisTemplate<String, Object> getRedisTemplate() {
         return redisTemplate;
     }
 
-    /************************************ key 相关的工具方法 ********************************************/
+    @Autowired
+    public  void setRedisTemplate(RedisTemplate redisTemplate) {
+        RedisUtils.redisTemplate = redisTemplate;
+    }
+/************************************ key 相关的工具方法 ********************************************/
     /**
      * 判断key是否存在
      * @param key

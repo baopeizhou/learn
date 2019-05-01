@@ -1,5 +1,6 @@
 package org.bob.learn.client.config;
 
+import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.boot.autoconfigure.kafka.ConcurrentKafkaListenerContainerFactoryConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,10 +12,10 @@ import org.springframework.kafka.listener.SeekToCurrentErrorHandler;
 import org.springframework.kafka.support.converter.RecordMessageConverter;
 import org.springframework.kafka.support.converter.StringJsonMessageConverter;
 
-@Configuration
+
 public class KafkaConfig {
 
-    @Bean
+
     public ConcurrentKafkaListenerContainerFactory<?, ?> kafkaListenerContainerFactory(
             ConcurrentKafkaListenerContainerFactoryConfigurer configurer,
             ConsumerFactory<Object, Object> kafkaConsumerFactory,
