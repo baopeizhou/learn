@@ -5,23 +5,16 @@ server:
 spring:
   application:
     name: learn-client
-  kafka:
-    bootstrap-servers: 115.159.2.51:9092,118.89.146.110:9092
-    producer:
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-      acks: 1
-      retries: 2
   redis:
     cluster:
       max-redirects: 3
-      nodes: 115.159.2.51:6379,115.159.2.51:6380,115.159.2.51:6381,118.89.146.110:6379,118.89.146.110:6380,118.89.146.110:6381
-    lettuce:
+      nodes: 192.168.4.4:6379,192.168.4.4:6380,192.168.4.4:6381,192.168.4.4:6382,192.168.4.4:6383,192.168.4.4:6384
+    jedis:
       pool:
-        min-idle: 8
+        min-idle: 4
         max-idle: 64
         max-wait: 2000
         max-active: 100
-      shutdown-timeout: 10
     password: learn
 
 #Feign Config

@@ -18,7 +18,7 @@ import java.io.IOException;
  * 降级过程： 1、请求进入 2、判断是否执行降级策略 3、若是，则转发请求转发至降级控制器，否则，正常处理请求
  * 注：Spring Cloud Hystrix 提供了降级功能，可以作为参考和后期引入Spring Cloud后进行切换
  */
-@WebFilter(urlPatterns = "/*", filterName = "degradeFilter")
+/*@WebFilter(urlPatterns = "/*", filterName = "degradeFilter")*/
 public class DegradeFilter implements Filter {
 
     /**

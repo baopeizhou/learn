@@ -7,7 +7,6 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 @Slf4j
-@Service
 public class MessageConsumerServiceImpl implements MessageConsumerService {
 
     @KafkaListener(id = "1",topics = "learn")
