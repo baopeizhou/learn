@@ -9,11 +9,11 @@ spring:
     cluster:
       max-redirects: 3
       nodes: 192.168.4.4:6379,192.168.4.4:6380,192.168.4.4:6381,192.168.4.4:6382,192.168.4.4:6383,192.168.4.4:6384
-    jedis:
+    lettuce:
       pool:
-        min-idle: 4
+        min-idle: 64
         max-idle: 64
-        max-wait: 2000
+        max-wait: 500
         max-active: 100
     password: learn
 

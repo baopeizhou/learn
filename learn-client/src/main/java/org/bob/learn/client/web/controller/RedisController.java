@@ -18,14 +18,13 @@ public class RedisController {
     public String set(){
         long key =ThreadLocalRandom.current().nextLong(10000000);
         RedisUtils.set(String.valueOf(key),String.valueOf(key));
-        log.info("Set"+String.valueOf(key));
         return "200";
     }
 
     @GetMapping("/get")
     public String get(){
         long key =ThreadLocalRandom.current().nextLong(10000000);
-        log.info(RedisUtils.get(String.valueOf(key)));
+        RedisUtils.get(String.valueOf(key));
         return "200";
     }
 }
