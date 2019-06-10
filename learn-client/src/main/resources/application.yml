@@ -1,14 +1,36 @@
 #Server Config
 server:
   port: 8000
+  servlet:
+    context-path: /client
+  undertow:
+    accesslog:
+      enabled: true
+      rotate: true
+      dir: /apprun/${spring.application.name}/logs/access
+    direct-buffers: true
+    buffer-size: 1024
+    io-threads: 8
+    worker-threads: 256
+    eager-filter-init: true
+    max-http-post-size: 20MB
 #Spring Config
 spring:
   application:
     name: learn-client
+  datasource:
+    url: jdbc:h2:file:~/.h2/testdb
+    username: spring
+    password: spring
+    driver-class-name: org.h2.Driver
+  security:
+    user:
+      name: learn
+      password: learn
   redis:
     cluster:
       max-redirects: 3
-      nodes: 192.168.4.4:6379,192.168.4.4:6380,192.168.4.4:6381,192.168.4.4:6382,192.168.4.4:6383,192.168.4.4:6384
+      nodes: 127.0.0.1:6379,127.0.0.1:6380,127.0.0.1:6381,127.0.0.1:6382,127.0.0.1:6383,127.0.0.1:6384
     lettuce:
       pool:
         min-idle: 64
@@ -16,13 +38,16 @@ spring:
         max-wait: 500
         max-active: 100
     password: learn
-
+  h2:
+    console:
+      enabled: true
 #Feign Config
 feign:
   hystrix:
     enabled: true
   httpclient:
     disable-ssl-validation: true
+    enabled: false
   client:
     default:
       connectTimeout: 1000
@@ -34,7 +59,7 @@ feign:
 #Loging Config
 logging:
   level:
-    root: INFO
+    root: DEBUG
 #Api Url Config
 api:
   url:
