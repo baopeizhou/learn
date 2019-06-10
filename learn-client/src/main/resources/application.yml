@@ -19,10 +19,13 @@ spring:
   application:
     name: learn-client
   datasource:
-    url: jdbc:h2:file:~/.h2/testdb
-    username: spring
-    password: spring
+    url: jdbc:h2:~/test
     driver-class-name: org.h2.Driver
+    #type: com.zaxxer.hikari.HikariDataSource
+    #schema: classpath:h2/schema.sql
+    username: sa
+    password: sa
+
   security:
     user:
       name: learn
@@ -64,3 +67,7 @@ logging:
 api:
   url:
     course: sdfasdf
+#Mybatis Config
+mybatis:
+  mapper-locations:
+    - classpath*:mybatis/mapper/*Mapper.xml
