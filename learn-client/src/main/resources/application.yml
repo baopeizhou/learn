@@ -75,6 +75,7 @@ logging:
   level:
     root: INFO
     org.h2: DEBUG
+    org.apache.ignite: DEBUG
 #Api Url Config
 api:
   url:
