@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Configurable;
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
 
-@Configurable
+
 public class IgniteConfig {
 
     @PostConstruct

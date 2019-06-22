@@ -21,7 +21,6 @@
         <netty.version>4.1.33.Final</netty.version>
         <jackson.version>2.9.8</jackson.version>
         <spring-kafka.version>2.2.4.RELEASE</spring-kafka.version>
-        <lettuce.version>5.1.2.RELEASE</lettuce.version>
         <jedis.version>3.0.1</jedis.version>
         <pool.version>2.6.1</pool.version>
         <ignite.version>2.7.0</ignite.version>
@@ -76,10 +75,6 @@
             <scope>compile</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
