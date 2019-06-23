@@ -1,4 +1,4 @@
-/*package org.bob.learn.client.config;
+package org.bob.learn.client.config;
 
 import io.lettuce.core.RedisURI;
 import io.lettuce.core.api.StatefulRedisConnection;
@@ -10,24 +10,29 @@ import io.lettuce.core.support.BoundedPoolConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.bob.learn.client.util.SpringContextUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
+import javax.annotation.PostConstruct;
 
+@AutoConfigureAfter(LettuceConnectionFactory.class)
+@Configuration
 public class RedisConfig {
 
+    @Autowired
+    private LettuceConnectionFactory lettuceConnectionFactory;
 
-    @Bean
-    public AsyncPool asyncPool(){
-        RedisClusterClient clusterClient = RedisClusterClient.create(RedisURI.create("", ""));
-
-        AsyncPool<StatefulRedisConnection<String, String>> pool = AsyncConnectionPoolSupport.createBoundedObjectPool(
-                () -> clusterClient.connectAsync(StringCodec.UTF8), BoundedPoolConfig.create());
+    @PostConstruct
+    public void init(){
+        lettuceConnectionFactory.setShareNativeConnection(false);
     }
 
 
-}*/
+}

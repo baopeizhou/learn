@@ -35,23 +35,22 @@ spring:
         cachePrepStmts: true
         prepStmtCacheSize: 250
         prepStmtCacheSqlLimit: 2048
-
-
   security:
     user:
       name: learn
       password: learn
   redis:
     cluster:
-      max-redirects: 3
+      max-redirects: 5
       nodes: 127.0.0.1:6379,127.0.0.1:6380,127.0.0.1:6381,127.0.0.1:6382,127.0.0.1:6383,127.0.0.1:6384
     lettuce:
       pool:
-        min-idle: 10
+        min-idle: 15
         max-idle: 64
-        max-wait: 500
+        max-wait: 20ms
         max-active: 100
     password: learn
+    timeout: 1000ms
   h2:
     console:
       enabled: true

@@ -10,6 +10,8 @@ import org.bob.learn.client.service.MessageProducerService;
 import org.bob.learn.client.util.SequenceUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
@@ -25,6 +27,11 @@ public class ApplicationRunner implements CommandLineRunner {
     @Autowired
     private DeviceOnlineMapper deviceOnlineMapper;
 
+    @Autowired
+    private LettuceConnectionFactory lettuceConnectionFactory;
+
+
+
    /* @Autowired
     private MessageProducerService messageProducerService;*/
 
@@ -33,6 +40,7 @@ public class ApplicationRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-       /* deviceService.test();*/
+        lettuceConnectionFactory.setShareNativeConnection(false);
+        lettuceConnectionFactory.afterPropertiesSet();
     }
 }
