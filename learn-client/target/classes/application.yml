@@ -1,0 +1,98 @@
+#Server Config
+server:
+  port: 8000
+  servlet:
+    context-path: /client
+  undertow:
+    accesslog:
+      enabled: true
+      rotate: true
+      dir: /apprun/${spring.application.name}/logs/access
+    direct-buffers: true
+    buffer-size: 1024
+    io-threads: 8
+    worker-threads: 256
+    eager-filter-init: true
+    max-http-post-size: 20MB
+#Spring Config
+spring:
+  application:
+    name: learn-client
+  datasource:
+    url: jdbc:h2:mem:device;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    schema: classpath:h2/schema.sql
+    username: sa
+    password: sa
+    hikari:
+      pool-name: h2-cp
+      minimum-idle: 20
+      maximum-pool-size: 100
+      idle-timeout: 1000
+      validation-timeout: 1000
+      dataSourceProperties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+  security:
+    user:
+      name: learn
+      password: learn
+  redis:
+    cluster:
+      max-redirects: 5
+      nodes: 127.0.0.1:6379,127.0.0.1:6380,127.0.0.1:6381,127.0.0.1:6382,127.0.0.1:6383,127.0.0.1:6384
+    lettuce:
+      pool:
+        min-idle: 15
+        max-idle: 64
+        max-wait: 20ms
+        max-active: 100
+    password: learn
+    timeout: 1000ms
+  h2:
+    console:
+      enabled: true
+#Feign Config
+feign:
+  hystrix:
+    enabled: true
+  httpclient:
+    disable-ssl-validation: true
+    enabled: false
+  client:
+    default:
+      connectTimeout: 1000
+      readTimeout: 1000
+      encoder: feign.jackson.JacksonEncoder
+      decoder: feign.jackson.JacksonDecoder
+    courseApiService:
+      readTimeout: 500
+#Loging Config
+logging:
+  level:
+    root: INFO
+    org.h2: DEBUG
+    org.apache.ignite: DEBUG
+#Api Url Config
+api:
+  url:
+    course: sdfasdf
+#Mybatis Config
+mybatis:
+  mapper-locations:
+    - classpath*:mybatis/mapper/*Mapper.xml
+#Management Config
+management:
+  server:
+    port: 8888
+  endpoint:
+    loggers:
+      enabled: true
+    metrics:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: loggers,metrics
