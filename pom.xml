@@ -12,6 +12,7 @@
     <modules>
         <module>learn-client</module>
         <module>learn-server</module>
+        <module>learn-agent</module>
     </modules>
 
 
